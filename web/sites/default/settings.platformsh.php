@@ -6,21 +6,23 @@
 
 $platformsh = new \Platformsh\ConfigReader\Config();
 
+if($platformsh->hasRelationship('database')) {
+  // Configure the database.
+  $creds = $platformsh->credentials('database');
+  $databases['default']['default'] = [
+    'driver' => $creds['scheme'],
+    'database' => $creds['path'],
+    'username' => $creds['username'],
+    'password' => $creds['password'],
+    'host' => $creds['host'],
+    'port' => $creds['port'],
+    'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
+  ];
+}
+
 if (!$platformsh->inRuntime()) {
   return;
 }
-
-// Configure the database.
-$creds = $platformsh->credentials('database');
-$databases['default']['default'] = [
-  'driver' => $creds['scheme'],
-  'database' => $creds['path'],
-  'username' => $creds['username'],
-  'password' => $creds['password'],
-  'host' => $creds['host'],
-  'port' => $creds['port'],
-  'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
-];
 
 // Enable Redis caching.
 if ($platformsh->hasRelationship('redis') && !drupal_installation_attempted() && extension_loaded('redis') && class_exists('Drupal\redis\ClientFactory')) {
