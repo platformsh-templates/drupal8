@@ -1,5 +1,5 @@
 {
-  "name": "vardot/platformsh-example-varbase",
+  "name": "vardot/platformsh-varbase",
   "description": "Project template for Varbase distribution.",
     "type": "project",
     "license": "GPL-2.0-or-later",
