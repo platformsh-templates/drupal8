@@ -1,10 +1,7 @@
-# Drupal 8 for Platform.sh
+# Varbase project template for Platform.sh
 
-<p align="center">
-<a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/template-builder/master/templates/drupal8/.platform.template.yaml&utm_content=drupal8&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
-    <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="180px" />
-</a>
-</p>
+This project provides a starter kit for Varbase 8.8.x projects hosted on [Platform.sh](http://platform.sh). It
+is very closely based on the [Varbase Composer project](https://github.com/Vardot/varbase-project).
 
 This template builds Drupal 8 using the "Drupal Recommended" Composer project.  It also includes configuration to use Redis for caching, although that must be enabled post-install in `.platform.app.yaml`.
 
@@ -35,5 +32,7 @@ The following changes have been made relative to Drupal 8 "Recommended" project 
 ## References
 
 * [Drupal](https://www.drupal.org/)
+* [Varbase](https://www.drupal.org/project/varbase)
+* [Vardot](https://www.drupal.org/vardot)
 * [Drupal on Platform.sh](https://docs.platform.sh/frameworks/drupal8.html)
 * [PHP on Platform.sh](https://docs.platform.sh/languages/php.html)
