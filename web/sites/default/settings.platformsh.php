@@ -4,7 +4,9 @@
  * Platform.sh settings.
  */
 
-$platformsh = new \Platformsh\ConfigReader\Config();
+use Platformsh\ConfigReader\Config;
+
+$platformsh = new Config();
 
 if (!$platformsh->inRuntime()) {
   return;
@@ -104,7 +106,7 @@ $settings['trusted_host_patterns'] = ['.*'];
 // and 'd8config:' into $config.
 foreach ($platformsh->variables() as $name => $value) {
   $parts = explode(':', $name);
-  list($prefix, $key) = array_pad($parts, 3, null);
+  [$prefix, $key] = array_pad($parts, 3, null);
   switch ($prefix) {
     // Variables that begin with `d8settings` or `drupal` get mapped
     // to the $settings array verbatim, even if the value is an array.
