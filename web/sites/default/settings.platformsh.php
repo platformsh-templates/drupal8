@@ -4,6 +4,8 @@
  * Platform.sh settings.
  */
 
+use Drupal\Core\Installer\InstallerKernel;
+
 $platformsh = new \Platformsh\ConfigReader\Config();
 
 if (!$platformsh->inRuntime()) {
@@ -23,7 +25,7 @@ $databases['default']['default'] = [
 ];
 
 // Enable Redis caching.
-if ($platformsh->hasRelationship('redis') && !drupal_installation_attempted() && extension_loaded('redis') && class_exists('Drupal\redis\ClientFactory')) {
+if ($platformsh->hasRelationship('redis') && !!InstallerKernel::installationAttempted() && extension_loaded('redis') && class_exists('Drupal\redis\ClientFactory')) {
   $redis = $platformsh->credentials('redis');
 
   // Set Redis as the default backend for any cache bin not otherwise specified.
