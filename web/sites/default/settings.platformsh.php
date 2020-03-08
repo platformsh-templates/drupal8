@@ -21,7 +21,7 @@ $databases['default']['default'] = [
   'password' => $creds['password'],
   'host' => $creds['host'],
   'port' => $creds['port'],
-  'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
+  'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])],
 ];
 
 // Enable Redis caching.
@@ -60,7 +60,11 @@ if ($platformsh->hasRelationship('redis') && !drupal_installation_attempted() &&
       ],
       'cache.backend.redis' => [
         'class' => 'Drupal\redis\Cache\CacheBackendFactory',
-        'arguments' => ['@redis.factory', '@cache_tags_provider.container', '@serialization.phpserialize'],
+        'arguments' => [
+          '@redis.factory',
+          '@cache_tags_provider.container',
+          '@serialization.phpserialize',
+        ],
       ],
       'cache.container' => [
         'class' => '\Drupal\redis\Cache\PhpRedis',
@@ -106,7 +110,7 @@ $settings['trusted_host_patterns'] = ['.*'];
 // and 'd8config:' into $config.
 foreach ($platformsh->variables() as $name => $value) {
   $parts = explode(':', $name);
-  [$prefix, $key] = array_pad($parts, 3, null);
+  [$prefix, $key] = array_pad($parts, 3, NULL);
   switch ($prefix) {
     // Variables that begin with `d8settings` or `drupal` get mapped
     // to the $settings array verbatim, even if the value is an array.
