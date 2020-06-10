@@ -8,6 +8,10 @@ use Drupal\Core\Installer\InstallerKernel;
 
 $platformsh = new \Platformsh\ConfigReader\Config();
 
+if (!$platformsh->inRuntime()) {
+  return;
+}
+
 // Configure the database.
 $creds = $platformsh->credentials('database');
 $databases['default']['default'] = [
@@ -19,10 +23,6 @@ $databases['default']['default'] = [
   'port' => $creds['port'],
   'pdo' => [PDO::MYSQL_ATTR_COMPRESS => !empty($creds['query']['compression'])]
 ];
-
-if (!$platformsh->inRuntime()) {
-  return;
-}
 
 // Enable Redis caching.
 if ($platformsh->hasRelationship('redis') && !InstallerKernel::installationAttempted() && extension_loaded('redis') && class_exists('Drupal\redis\ClientFactory')) {
