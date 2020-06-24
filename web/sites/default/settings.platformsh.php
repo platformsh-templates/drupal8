@@ -82,8 +82,8 @@ if ($platformsh->hasRelationship('redis') && !InstallerKernel::installationAttem
 if (!isset($settings['file_private_path'])) {
   $settings['file_private_path'] = $platformsh->appDir . '/private';
 }
-if (!isset($config['file_temp_path'])) {
-  $config['file_temp_path'] = $platformsh->appDir . '/tmp';
+if (!isset($settings['file_temp_path'])) {
+  $settings['file_temp_path'] = $platformsh->appDir . '/tmp';
 }
 
 // Configure the default PhpStorage and Twig template cache directories.
