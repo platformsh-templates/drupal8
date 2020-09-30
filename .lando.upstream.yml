@@ -1,9 +1,14 @@
 # This file sets some good defaults for the local development of a platform.sh
-# Drupal 8 project using Lando.
+# Laravel project using Lando.
 #
 # Note that you should not edit this file so it can continue to receive upstream
 # updates. If you wish to change the values below then override them in your
 # normal .lando.yml.
+
+# These both allow you to test this template without needing a site on platform.sh
+# However you will want to replace them in your .lando.yml
+name: laravel-drupal8
+recipe: platformsh
 
 config:
   # Generally this section overrides production variables and settings for
@@ -16,13 +21,13 @@ config:
   # https://docs.platform.sh/configuration/app/variables.html
   variables:
     app:
-      d8config:
-        "system.file:path:temporary": "/tmp"
-      d8settings:
-        "skip_permissions_hardening": 1
+      env:
+        APP_ENV: development
+        APP_DEBUG: 1
 
 
-# These are Drupal 8 specific tools that are commonly used during development.
+# These are Laravel specific tools that are commonly used during development.
 tooling:
-  drush:
+  artisan:
+    cmd: /app/artisan
     service: app
