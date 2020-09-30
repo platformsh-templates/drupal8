@@ -1,5 +1,5 @@
 # This file sets some good defaults for the local development of a platform.sh
-# Laravel project using Lando.
+# Drupal 8 project using Lando.
 #
 # Note that you should not edit this file so it can continue to receive upstream
 # updates. If you wish to change the values below then override them in your
@@ -21,13 +21,13 @@ config:
   # https://docs.platform.sh/configuration/app/variables.html
   variables:
     app:
-      env:
-        APP_ENV: development
-        APP_DEBUG: 1
+      d8config:
+        "system.file:path:temporary": "/tmp"
+      d8settings:
+        "skip_permissions_hardening": 1
 
 
-# These are Laravel specific tools that are commonly used during development.
+# These are Drupal 8 specific tools that are commonly used during development.
 tooling:
-  artisan:
-    cmd: /app/artisan
+  drush:
     service: app
