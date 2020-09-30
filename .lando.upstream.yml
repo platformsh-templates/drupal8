@@ -7,7 +7,7 @@
 
 # These both allow you to test this template without needing a site on platform.sh
 # However you will want to replace them in your .lando.yml
-name: laravel-drupal8
+name: drupal8-platformsh
 recipe: platformsh
 
 config:
