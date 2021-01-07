@@ -20,7 +20,7 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
-        "drupal/redis": "^1.4",
+        "drupal/redis": "^1.5",
         "drush/drush": "^10.3",
         "platformsh/config-reader": "^2.4"
     },
