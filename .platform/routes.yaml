@@ -10,15 +10,18 @@
       enabled: true
 
       # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
-      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+        cookies:
+            - '/^Drupal.visitor/'
+            - '/^SS?ESS/'
+            - '/^comment_/'
+            - '/^wordpress_/'
+            - '/^wordpress_logged_in_/'
+            - '/^wordpress_sec_/'
+            - 'wordpress_test_cookie'
+            - '/^wp-settings-/'
+            - '/^wp-resetpass-/'
+            - '/^wp-postpass/'
 
 "https://www.{default}/":
     type: redirect
     to: "https://{default}/"
-
-# Disable cache for admin pages to make password reset work
-https://{default}/wp-admin/:
-    type: upstream
-    upstream: "app:http"
-    cache:
-        enabled: false
