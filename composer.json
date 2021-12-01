@@ -21,7 +21,7 @@
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
         "drupal/redis": "^1.5",
-        "drush/drush": "^10.5",
+        "drush/drush": "^10.6",
         "platformsh/config-reader": "^2.4"
     },
     "conflict": {
