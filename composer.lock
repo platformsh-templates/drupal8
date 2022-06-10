@@ -4918,6 +4918,7 @@
                     "type": "tidelift"
                 }
             ],
+            "abandoned": "symfony/error-handler",
             "time": "2020-05-22T18:25:20+00:00"
         },
         {
