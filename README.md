@@ -1,4 +1,6 @@
-
+> ## Archived template
+>
+> This template has been archived. You can still use it as a reference, but it is no longer receiving regular updates from our team.
 <p align="right">
 <a href="https://platform.sh">
 <img src="https://platform.sh/logos/redesign/Platformsh_logo_black.svg" width="150px">
