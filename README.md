@@ -80,9 +80,7 @@ The quickest way to deploy this template on Platform.sh is by clicking the butto
 This will automatically create a new project and initialize the repository for you.
 
 <p align="center">
-    <a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/template-builder/master/templates/drupal8/.platform.template.yaml&utm_content=drupal8&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
-        <img src="https://platform.sh/images/deploy/lg-blue.svg" alt="Deploy on Platform.sh" width="170px" />
-    </a>
+
 </p>
 <br/>
 
